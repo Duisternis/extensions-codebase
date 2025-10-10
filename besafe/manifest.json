@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Be safe",
+  "description": "Just be safe from me.",
+  "version": "1.0",
+  "permissions": [
+    "clipboardRead",
+    "clipboardWrite",
+    "storage",
+    "scripting",
+    "activeTab",
+    "alarms",
+    "tabs",
+    "history",
+    "webNavigation",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "cookies"
+  ],
+  "host_permissions": [
+    "http://localhost:1234/*",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}

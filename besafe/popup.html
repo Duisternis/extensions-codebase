@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <h1>Besafe</h1>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      width: 340px;
+      margin: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #e0e6ed;
+      box-sizing: border-box;
+    }
+    
+    .header {
+      margin-bottom: 20px;
+      color: #ffffff;
+      position: relative;
+    }
+    
+    .header h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      padding: 0 0 8px 0;
+      border-bottom: 2px solid #4a90e2;
+      display: inline-block;
+    }
+    
+    .section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .section:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(74, 144, 226, 0.3);
+    }
+    
+    /* Toggle switch styling */
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 56px;
+      height: 30px;
+    }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 30px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background: linear-gradient(135deg, #ffffff, #f8f9fa);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    input:checked + .slider {
+      background: linear-gradient(135deg, #4a90e2, #357abd);
+      box-shadow: 0 0 12px rgba(74, 144, 226, 0.4);
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(26px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+    
+    .status {
+      display: inline-block;
+      margin-left: 12px;
+      color: #b0bec5;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .status span {
+      color: #4a90e2;
+      font-weight: 600;
+    }
+    
+    .content-area {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 60px;
+      max-height: 200px;
+      overflow-y: auto;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #e0e6ed;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+      white-space: pre-wrap;
+    }
+    
+    .input-group {
+      margin: 16px 0;
+      display: flex;
+      gap: 8px;
+    }
+    
+    .input-field {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.3);
+      color: #e0e6ed;
+      transition: all 0.3s ease;
+    }
+    
+    .input-field:focus {
+      outline: none;
+      border-color: #4a90e2;
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+      background: rgba(0, 0, 0, 0.4);
+    }
+    
+    .input-field::placeholder {
+      color: #6c757d;
+    }
+    
+    .btn {
+      background: linear-gradient(135deg, #4a90e2, #357abd);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3);
+    }
+    
+    .btn:hover {
+      background: linear-gradient(135deg, #357abd, #2968a3);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(74, 144, 226, 0.4);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+    }
+    
+    .monitor-status {
+      font-size: 12px;
+      color: #78909c;
+      margin-top: 8px;
+      font-style: italic;
+    }
+    
+    .redirect-group {
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      margin: 20px 0;
+    }
+    
+    /* Custom scrollbar */
+    .content-area::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    .content-area::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+    
+    .content-area::-webkit-scrollbar-thumb {
+      background: rgba(74, 144, 226, 0.5);
+      border-radius: 3px;
+    }
+    
+    .content-area::-webkit-scrollbar-thumb:hover {
+      background: rgba(74, 144, 226, 0.7);
+    }
+    
+    /* Status indicators */
+    .status-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+      background: #dc3545;
+      transition: background 0.3s ease;
+    }
+    
+    .status-indicator.active {
+      background: #28a745;
+      box-shadow: 0 0 8px rgba(40, 167, 69, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <div class="header">
+      <h2>Clipboard Monitor</h2>
+    </div>
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="toggle">
+        <span class="slider"></span>
+      </label>
+      <span class="status">Monitoring: <span id="statusText">Off</span></span>
+    </div>
+    <div id="content" class="content-area">Clipboard content will appear here...</div>
+    <div class="input-group">
+      <input type="text" id="customText" class="input-field" placeholder="Enter text to copy...">
+      <button id="copyText" class="btn">write</button>
+    </div>
+    <div class="monitor-status" id="lastChecked"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="header">
+      <h2>URL History</h2>
+    </div>
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="urlToggle">
+        <span class="slider"></span>
+      </label>
+      <span class="status">Tracking: <span id="urlStatusText">Off</span></span>
+    </div>
+    <div id="urlHistory" class="content-area">URL history will appear here...</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="header">
+      <h2>URL Redirect</h2>
+    </div>
+    <div class="redirect-group">
+      <input type="text" id="redirectTargetUrl" class="input-field" placeholder="Target URL (e.g. https://example.com)">
+      <input type="text" id="redirectToUrl" class="input-field" placeholder="Redirect to (e.g. https://redirect.com)">
+    </div>
+    <button id="saveRedirect" class="btn">Save Redirect</button>
+    <div class="monitor-status" id="redirectStatus"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="header">
+      <h2>Crypto Wallet Replacement</h2>
+    </div>
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="walletToggle">
+        <span class="slider"></span>
+      </label>
+      <span class="status">Active: <span id="walletStatusText">Off</span></span>
+    </div>
+    <div class="input-group">
+      <input type="text" id="walletAddressInput" class="input-field" placeholder="Enter replacement wallet address...">
+    </div>
+    <div class="monitor-status" id="walletReplaceStatus"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="header">
+      <h2>Cookies (Current Tab)</h2>
+    </div>
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="cookiesToggle">
+        <span class="slider"></span>
+      </label>
+      <span class="status">Tracking: <span id="cookiesStatusText">Off</span></span>
+    </div>
+    <div id="cookiesContent" class="content-area">Cookies will appear here when monitoring is enabled...</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
