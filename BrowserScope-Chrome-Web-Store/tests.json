@@ -1,0 +1,289 @@
+[
+  {
+    "category": "Suspicious / Malicious Files",
+    "description": "Attackers send phishing emails with attachments containing malicious macros that, when enabled, execute code to steal data, install malware, or gain remote access.\n",
+    "download": true,
+    "name": "Isolate Macro Documents",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "click",
+            "selector": "a.download-button"
+          },
+          {
+            "action": "wait",
+            "duration": 3000
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://files.sqattckrange.com/vba/index.html"
+      }
+    ]
+  },
+  {
+    "category": "Suspicious / Malicious Files",
+    "description": "File type mismatching is a deception technique where attackers disguise malicious executables as harmless documents by manipulating file extensions or metadata. Users believing they're opening a PDF or image file inadvertently execute malware.\n",
+    "download": true,
+    "name": "Block File Type Mismatch",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "click",
+            "selector": "a.download-button"
+          },
+          {
+            "action": "wait",
+            "duration": 5000
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://hubspot.whoosemoose.com/file-type-mismatch/"
+      }
+    ]
+  },
+  {
+    "category": "Known Threat Detection",
+    "description": "Malicious files identified through threat intelligence contain viruses, trojans, ransomware, or other malware that execute upon opening to compromise systems.",
+    "download": true,
+    "name": "Block Malicious File Downloads",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "click",
+            "selector": "button[data-testid='download-raw-button']"
+          },
+          {
+            "action": "wait",
+            "duration": 3000
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://github.com/Duisternis/scanmalfilesfordemo/blob/main/windows.bat"
+      }
+    ]
+  },
+  
+  {
+    "category": "Known Threat Detection",
+    "description": "Sophisticated phishing campaigns impersonate legitimate companies like Crowdstrike through fake recruitment portals, SharePoint documents, and calendar invitations to harvest credentials and deploy malware. These multi-vector attacks exploit trusted communication channels and legitimate cloud services to bypass security controls. Victims who engage with these campaigns expose their login credentials.",
+    "download": false,
+    "name": "Crowdstrike Recruitment Phishing",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "wait",
+            "duration": 200
+          },
+          {
+            "action": "check",
+            "selector": ".card",
+            "success_result": false
+          }
+        ],
+        "timeout_ms": 5000,
+        "type": "open",
+        "url": "https://redcrwdstke.vercel.app/"
+      }
+    ]
+  },
+  {
+    "category": "Data Leakage Prevention",
+    "description": "Attackers hide executables with names like invoice.pdf.exe or photo.jpg.scr so users think they’re opening a document/image and accidentally run malware.",
+    "download": true,
+    "name": "Block Double Extension file Download",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "click",
+            "selector": "button"
+          },
+          {
+            "action": "wait",
+            "duration": 3000
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://copy-simulator.vercel.app/double.html"
+      }
+    ]
+  },
+  {
+    "category": "Data Leakage Prevention",
+    "description": "Printing sensitive documents creates physical security risks including unauthorized document distribution, dumpster diving attacks, and loss of data control once information leaves digital systems.\n",
+    "download": false,
+    "name": "Print Block Check",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "check_print_block"
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://docs.google.com/document/d/1-wfZzH12IPD1Rh9WJGd0t-Yh1JTzWlq1VgI1pgSv_i0/edit?tab=t.0#heading=h.5rf9wr4r3no2"
+      }
+    ]
+  },
+  {
+    "category": "Web & Content Filtering",
+    "description": "QR codes on websites can contain malicious links that redirect users to phishing sites, malware downloads, or credential harvesting pages. These codes are particularly dangerous because users often scan them without knowing the destination, bypassing traditional web security warnings. Attackers exploit the trust users place in QR codes and the difficulty of visually inspecting encoded URLs before scanning.",
+    "download": false,
+    "name": "Block All QR Codes",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "wait",
+            "duration": 3000
+          },
+          {
+            "action": "check",
+            "selector": "img[alt='qr']",
+            "success_result": false
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://woodenredmind.vercel.app/"
+      }
+    ]
+  },
+  {
+    "category": "Identity Attacks",
+    "description": "Password reuse across multiple sites creates a domino effect where one breached service compromises all accounts using the same credentials. Attackers use credential stuffing attacks with leaked password databases to gain unauthorized access across multiple platforms.",
+    "download": false,
+    "name": "Block Reused Passwords",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "wait_for_element",
+            "selector": "input[name='username']",
+            "timeout": 10000
+          },
+          {
+            "action": "type",
+            "selector": "input[name='username']",
+            "value": "username"
+          },
+          {
+            "action": "type",
+            "selector": "input[type='password']",
+            "value": "5zu0X%q9L:kw"
+          },
+          {
+            "action": "click",
+            "selector": "button[type='submit']"
+          },
+          {
+            "action": "check",
+            "selector": "#header_block",
+            "success_result": false
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://www.instagram.com/"
+      },
+      {
+        "script_code": [
+          {
+            "action": "type",
+            "selector": "#pass",
+            "value": "5zu0X%q9L:kw"
+          },
+          {
+            "action": "click",
+            "selector": "button[type='submit']"
+          },
+          {
+            "action": "check",
+            "selector": "#header_block",
+            "success_result": false
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://facebook.com/"
+      }
+    ]
+  },
+  {
+    "category": "Identity Attacks",
+    "description": "Attackers manipulate OAuth authentication flows to gain unauthorized access to cloud services, email accounts, file storage systems, and other online platforms. They exploit users' trust in OAuth authorization prompts to bypass security measures and access sensitive data across multiple services. This attack vector is particularly dangerous because OAuth requests often appear legitimate, while actually requesting excessive permissions that grant attackers broad access to user accounts, personal information, business documents, and integrated third-party applications.\n",
+    "download": false,
+    "name": "Block High Risk Google OAuth Scopes",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "click",
+            "selector": "button"
+          },
+          {
+            "action": "wait",
+            "duration": 1000
+          },
+          {
+            "action": "check",
+            "selector": "div[role='link'][tabindex='0']",
+            "success_result": false
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://inboxiq-xi.vercel.app/"
+      }
+    ]
+  },
+  {
+    "category": "Web & Content Filtering",
+    "description": "Links shared through social networks are increasingly used to distribute malware, phishing sites, and scams due to implicit trust in social connections. Attackers compromise social media accounts or create fake profiles to share malicious links that appear legitimate.",
+    "download": false,
+    "name": "Isolate Social Network Referrals",
+    "steps": [
+      {
+        "script_code": [
+          {
+            "action": "click",
+            "selector": "#user-content-linkedin"
+          },
+          {
+            "action": "wait",
+            "duration": 500
+          },
+          {
+            "action": "click",
+            "selector": ".contextual-sign-in-modal__modal-dismiss-icon"
+          },
+          {
+            "action": "click",
+            "selector": "a[data-tracking-control-name='about_website']"
+          },
+          {
+            "action": "wait",
+            "duration": 5000
+          },
+          {
+            "action": "check",
+            "selector": ".request-demo-nav",
+            "success_result": false
+          }
+        ],
+        "timeout_ms": 1000,
+        "type": "open",
+        "url": "https://github.com/Duisternis/scanmalfilesfordemo/blob/main/README.md"
+      }
+    ]
+  }
+]

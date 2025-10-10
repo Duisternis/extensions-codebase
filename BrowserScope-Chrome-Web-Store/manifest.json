@@ -1,0 +1,27 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 3,
+  "name": "BrowserScope",
+  "version": "0.0.1",
+  "description": "Simulates browser behavior for testing and demonstration.",
+  "permissions": [
+    "scripting",    
+    "storage",
+    "downloads",
+    "activeTab",
+    "management",
+    "privacy"
+  ],
+  "host_permissions": ["https://*/*", "http://*/*", "file://*/*"],
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "assets/sqrx-logo-light.png"
+  }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>BrowserScope — Security Assessment</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./report.css" rel="stylesheet" />
+    <script src="chart.min.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <h1>BrowserScope - Browser Security Posture Report</h1>
+          <p>
+            Click on any test row to view detailed information including URLs,
+            steps, and download details.
+          </p>
+        </div>
+
+        <div class="controls">
+          <button id="exportJson">Export JSON</button>
+        </div>
+      </header>
+
+      <div class="summary" role="region" aria-label="Executive summary">
+        <div class="kpi">
+          <div class="num" id="totalTests">—</div>
+          <div class="label">Total tests</div>
+        </div>
+        <div class="kpi">
+          <div class="num" id="testsPassed">—</div>
+          <div class="label">Passed</div>
+        </div>
+        <div class="kpi">
+          <div class="num" id="testsFailed">—</div>
+          <div class="label">Failed</div>
+        </div>
+        <div class="kpi">
+          <div class="num" id="downloadsCount">—</div>
+          <div class="label">Tests with downloads</div>
+        </div>
+        <div class="kpi">
+          <div class="num" id="blockedDownloads">—</div>
+          <div class="label">Downloads blocked</div>
+        </div>
+        <div style="margin-left: auto" class="muted">
+          Date: <span id="reportDate">—</span>
+        </div>
+      </div>
+
+      <main>
+        <aside class="left">
+          <div class="chart-container">
+            <canvas id="categoryChart"></canvas>
+          </div>
+        </aside>
+
+        <section class="right">
+          <div class="browser-info">
+            <h3>What we know about your browser?</h3>
+            <div class="browser-tabs">
+              <div class="browser-tab active" data-tab="general">General</div>
+              <div class="browser-tab" data-tab="security">Permission & Security</div>
+              <div class="browser-tab" data-tab="hardware">Hardware & Storage</div>
+              <div class="browser-tab" data-tab="fingerprints">Extensions & Fingerprints</div>
+              <div class="browser-tab" data-tab="others">Others</div>
+            </div>
+            <div id="browserTabGeneral" class="browser-tab-content active"></div>
+            <div id="browserTabSecurity" class="browser-tab-content"></div>
+            <div id="browserTabHardware" class="browser-tab-content"></div>
+            <div id="browserTabFingerprints" class="browser-tab-content"></div>
+            <div id="browserTabOthers" class="browser-tab-content"></div>
+          </div>
+          <div class="search-row">
+            <input
+              id="search"
+              type="search"
+              placeholder="Search tests, categories..."
+              aria-label="Search tests"
+            />
+            <div class="filters">
+              <select id="categorySelect" aria-label="Filter by category">
+                <option value="all">All categories</option>
+              </select>
+              <select id="statusSelect" aria-label="Filter by status">
+                <option value="all">All statuses</option>
+                <option value="pass">Pass</option>
+                <option value="fail">Fail</option>
+              </select>
+            </div>
+          </div>
+
+          <table id="resultsTable" aria-live="polite">
+            <thead>
+              <tr>
+                <th style="width: 50%">Test</th>
+                <th style="width: 30%">Category</th>
+                <th style="width: 20%">Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <div id="testModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <script src="./browser-info.js"></script>
+    <script src="./report.js"></script>
+  </body>
+</html>
