@@ -1,0 +1,58 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "version": "1.0.12",
+  "default_locale": "en",
+  "description": "__MSG_extDescription__",
+  "permissions": ["activeTab", "notifications", "storage", "contextMenus"],
+  "host_permissions": ["*://*/*"],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "icons": {
+    "128": "icons/icon_128.png",
+    "48": "icons/icon_48.png",
+    "38": "icons/icon_38.png",
+    "19": "icons/icon_19.png"
+  },
+  "action": {
+    "default_icon": {
+      "128": "icons/icon_128.png",
+      "48": "icons/icon_48.png",
+      "38": "icons/icon_38.png",
+      "19": "icons/icon_19.png"
+    },
+    "default_title": "Color Picker",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "commands": {
+    "run-picker": {
+      "suggested_key": {
+        "default": "Alt+U",
+        "mac": "Command+U"
+      },
+      "description": "Activate pick color from web page."
+    }
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "js": ["js/content.js"],
+      "css": ["scss/content.scss"],
+      "matches": ["*://*/*"],
+      "all_frames": true
+    },
+    {
+      "matches": ["https://*/*"],
+      "js": ["./js/picker.js", "./js/library.js"],
+      "css": ["./picker.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
