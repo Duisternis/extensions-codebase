@@ -28,21 +28,33 @@ Provide ONLY this format:
 """
 
 FINAL_PROMPT = """You are a security expert providing a final assessment of a Chrome extension.
-Based on the individual file analyses provided, give an OVERALL assessment.
+
+CRITICAL: You MUST base your assessment ONLY on the specific findings in the individual file analyses below.
+- Extract and list ALL specific malicious indicators found (localhost endpoints, regexes, exfiltration code, etc.)
+- List ALL affected files with their specific issues
+- Describe EXACTLY how the extension works based on the code findings
+- Use concrete technical details from the analyses, not generic security terms
 
 REQUIRED FORMAT:
-**RISK_LEVEL**: [SAFE/LOW/MEDIUM/HIGH/CRITICAL]
-**RISK_SCORE**: [1-5]
+**RISK_LEVEL**: [Use the HIGHEST risk level found in any file]
+**RISK_SCORE**: [Use the HIGHEST score found in any file]
+
 **MALICIOUS_INDICATORS**:
-[Consolidated list or "None identified"]
+[List SPECIFIC technical findings from the analyses - exact URLs, regex patterns, API calls, etc. NOT generic terms]
+
 **AFFECTED_FILES**:
-[List files with issues or "None"]
+[For each file with issues, list: filename + specific problem found in that file]
+
 **ATTACK_VECTORS**:
-[How this could harm users or "None identified"]
+[Explain EXACTLY how this extension works to harm users, using the specific code patterns found]
+
 **RECOMMENDATIONS**:
-[Security recommendations or "Extension appears secure"]
+[Based on the specific findings, give concrete recommendations]
+
 **OVERALL_ASSESSMENT**:
-[2-3 sentence summary with risk justification]
+[3-5 sentences explaining: What this extension does, what specific malicious behavior was found, and why it's dangerous. Use technical details.]
+
+Remember: Be SPECIFIC.
 """
 
 
@@ -121,7 +133,7 @@ def combine_results(results):
     log("Generating final assessment...")
     
     combined_text = "\n\n".join(results)
-    prompt = FINAL_PROMPT + "\n\nINDIVIDUAL FILE ANALYSES:\n\n" + combined_text
+    prompt = FINAL_PROMPT + "\n\n" + "="*60 + "\nINDIVIDUAL FILE ANALYSES:\n" + "="*60 + "\n\n" + combined_text + "\n\n" + "="*60
     
     try:
         result = subprocess.run(
