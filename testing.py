@@ -13,16 +13,23 @@ NUM_TOP_FILES = 5
 
 MANIFEST_PROMPT = """Analyze this Chrome extension manifest.json for security risks.
 
-Focus on:
-- Permissions: Are they excessive or dangerous?
-- Host access: Does it request broad access?
-- External resources: Any suspicious sources?
-- CSP weaknesses
+You MUST evaluate and comment on each:
+1. Permissions: Excessive or dangerous?
+2. Host access: Broad or targeted?
+3. External resources: Suspicious sources?
+4. CSP: Strong or weak?
 
 Format:
 **FILE**: manifest.json
 **RISK_LEVEL**: [SAFE/LOW/MEDIUM/HIGH/CRITICAL]
 **RISK_SCORE**: [1-5]
+
+**PARAMETER_ANALYSIS**:
+1. Permissions: [Your assessment]
+2. Host Access: [Your assessment]
+3. External Resources: [Your assessment]
+4. CSP: [Your assessment]
+
 **MALICIOUS_INDICATORS**: [Specific findings or "None"]
 **ATTACK_VECTORS**: [How it could harm users or "None"]
 **RECOMMENDATIONS**: [Actions needed or "Appears safe"]
@@ -30,17 +37,25 @@ Format:
 
 FILE_PROMPT = """Analyze this Chrome extension file: {filename}
 
-Focus on:
-- Data collection: What data is accessed and where does it go?
-- User tracking: Any monitoring of user behavior?
-- Network requests: Suspicious destinations or patterns?
-- Dangerous APIs: Code execution, debugging, or injection?
-- Obfuscation: Attempts to hide functionality?
+You MUST evaluate and comment on each:
+1. Data Collection: What data is accessed? Where does it go?
+2. Network Activity: Any requests? To where?
+3. Code Obfuscation: Is code hidden/minified beyond normal?
+4. Dangerous APIs: Any risky Chrome APIs or eval()?
+5. User Tracking: Monitoring behavior or input?
 
 Format:
 **FILE**: {filename}
 **RISK_LEVEL**: [SAFE/LOW/MEDIUM/HIGH/CRITICAL]
 **RISK_SCORE**: [1-5]
+
+**PARAMETER_ANALYSIS**:
+1. Data Collection: [Your assessment]
+2. Network Activity: [Your assessment]
+3. Code Obfuscation: [Your assessment]
+4. Dangerous APIs: [Your assessment]
+5. User Tracking: [Your assessment]
+
 **MALICIOUS_INDICATORS**: [Specific findings or "None"]
 **ATTACK_VECTORS**: [How it could harm users or "None"]
 **RECOMMENDATIONS**: [Actions needed or "Appears safe"]
