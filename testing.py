@@ -287,7 +287,7 @@ def main():
             f.write("\n\n")
     
     log("\n" + "="*60)
-    log("✅ Analysis complete", "SUCCESS")
+    log("Analysis complete", "SUCCESS")
     log(f"Results: {COMBINED_OUTPUT}")
     log("="*60)
 
