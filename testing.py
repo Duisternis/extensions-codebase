@@ -11,49 +11,59 @@ COMBINED_OUTPUT = "combined_report.md"
 MAX_CHARS = 10000
 NUM_TOP_FILES = 5
 
-FILE_PROMPT = """You are a security expert analyzing a Chrome extension file.
-Focus on: data theft, privacy violations, suspicious network requests, dangerous permissions, code obfuscation, credential harvesting.
+MANIFEST_PROMPT = """Analyze this Chrome extension manifest.json for security risks.
 
-Provide ONLY this format:
+Focus on:
+- Permissions: Are they excessive or dangerous?
+- Host access: Does it request broad access?
+- External resources: Any suspicious sources?
+- CSP weaknesses
+
+Format:
+**FILE**: manifest.json
+**RISK_LEVEL**: [SAFE/LOW/MEDIUM/HIGH/CRITICAL]
+**RISK_SCORE**: [1-5]
+**MALICIOUS_INDICATORS**: [Specific findings or "None"]
+**ATTACK_VECTORS**: [How it could harm users or "None"]
+**RECOMMENDATIONS**: [Actions needed or "Appears safe"]
+"""
+
+FILE_PROMPT = """Analyze this Chrome extension file: {filename}
+
+Focus on:
+- Data collection: What data is accessed and where does it go?
+- User tracking: Any monitoring of user behavior?
+- Network requests: Suspicious destinations or patterns?
+- Dangerous APIs: Code execution, debugging, or injection?
+- Obfuscation: Attempts to hide functionality?
+
+Format:
 **FILE**: {filename}
 **RISK_LEVEL**: [SAFE/LOW/MEDIUM/HIGH/CRITICAL]
 **RISK_SCORE**: [1-5]
-**MALICIOUS_INDICATORS**:
-[List suspicious patterns or "None identified"]
-**ATTACK_VECTORS**:
-[Explain potential risks briefly or "None identified"]
-**RECOMMENDATIONS**:
-[Security recommendations or "File appears safe"]
+**MALICIOUS_INDICATORS**: [Specific findings or "None"]
+**ATTACK_VECTORS**: [How it could harm users or "None"]
+**RECOMMENDATIONS**: [Actions needed or "Appears safe"]
 """
 
-FINAL_PROMPT = """You are a security expert providing a final assessment of a Chrome extension.
+FINAL_PROMPT = """Based on the file analyses below, provide a comprehensive security assessment.
 
-CRITICAL: You MUST base your assessment ONLY on the specific findings in the individual file analyses below.
-- Extract and list ALL specific malicious indicators found (localhost endpoints, regexes, exfiltration code, etc.)
-- List ALL affected files with their specific issues
-- Describe EXACTLY how the extension works based on the code findings
-- Use concrete technical details from the analyses, not generic security terms
+Requirements:
+- Use the HIGHEST risk level found
+- List specific findings (URLs, functions, permissions)
+- Explain the attack chain if malicious
+- Be technical and specific
 
-REQUIRED FORMAT:
-**RISK_LEVEL**: [Use the HIGHEST risk level found in any file]
-**RISK_SCORE**: [Use the HIGHEST score found in any file]
+Format:
+**RISK_LEVEL**: [Highest from analyses]
+**RISK_SCORE**: [Highest from analyses]
+**MALICIOUS_INDICATORS**: [Specific findings from all files]
+**AFFECTED_FILES**: [Which files have issues]
+**ATTACK_VECTORS**: [Complete attack explanation]
+**RECOMMENDATIONS**: [Prioritized actions]
+**OVERALL_ASSESSMENT**: [3-5 sentence summary]
 
-**MALICIOUS_INDICATORS**:
-[List SPECIFIC technical findings from the analyses - exact URLs, regex patterns, API calls, etc. NOT generic terms]
-
-**AFFECTED_FILES**:
-[For each file with issues, list: filename + specific problem found in that file]
-
-**ATTACK_VECTORS**:
-[Explain EXACTLY how this extension works to harm users, using the specific code patterns found]
-
-**RECOMMENDATIONS**:
-[Based on the specific findings, give concrete recommendations]
-
-**OVERALL_ASSESSMENT**:
-[3-5 sentences explaining: What this extension does, what specific malicious behavior was found, and why it's dangerous. Use technical details.]
-
-Remember: Be SPECIFIC. Reference actual findings like "sends data to http://localhost:1234" not "unauthorized network requests".
+File Analyses:
 """
 
 
@@ -68,6 +78,9 @@ def get_top_files(path, num_files, exclude=None):
     exclude = exclude or []
     files = []
     
+    # Prioritize certain file types
+    priority_patterns = ["background", "content", "inject", "popup"]
+    
     for root, _, filenames in os.walk(path):
         for f in filenames:
             if f in exclude or not f.endswith((".js", ".json", ".html", ".ts")):
@@ -76,7 +89,13 @@ def get_top_files(path, num_files, exclude=None):
             full_path = Path(root) / f
             try:
                 size = full_path.stat().st_size
-                files.append((full_path, size))
+                # Boost priority for key files
+                priority_boost = 0
+                for pattern in priority_patterns:
+                    if pattern in f.lower():
+                        priority_boost = 1000000
+                        break
+                files.append((full_path, size + priority_boost))
             except OSError:
                 continue
     
@@ -84,7 +103,7 @@ def get_top_files(path, num_files, exclude=None):
     return [str(f[0]) for f in files[:num_files]]
 
 
-def analyze_file(filepath, prompt_template, model):
+def analyze_file(filepath, prompt_template, model, is_manifest=False):
     """Analyze a single file using opencode."""
     filename = Path(filepath).name
     log(f"Reading {filename}...")
@@ -95,7 +114,11 @@ def analyze_file(filepath, prompt_template, model):
     except Exception as e:
         return f"**FILE**: {filename}\n**ERROR**: Failed to read file: {e}"
     
-    prompt = prompt_template.format(filename=filename) + "\n\n" + content
+    # Use appropriate prompt
+    if is_manifest:
+        prompt = prompt_template + "\n\n" + content
+    else:
+        prompt = prompt_template.format(filename=filename) + "\n\n" + content
     
     log(f"Analyzing {filename} with {model}...")
     try:
@@ -103,7 +126,7 @@ def analyze_file(filepath, prompt_template, model):
             ["opencode", "run", "-m", model, prompt],
             capture_output=True,
             text=True,
-            timeout=300  # 5 min timeout
+            timeout=300
         )
         
         if result.returncode != 0:
@@ -132,7 +155,7 @@ def combine_results(results, model):
     log("Generating final assessment...")
     
     combined_text = "\n\n".join(results)
-    prompt = FINAL_PROMPT + "\n\n" + "="*60 + "\nINDIVIDUAL FILE ANALYSES:\n" + "="*60 + "\n\n" + combined_text + "\n\n" + "="*60
+    prompt = FINAL_PROMPT + "\n\n" + combined_text
     
     try:
         result = subprocess.run(
@@ -169,9 +192,12 @@ def main():
         log(f"Extension path does not exist: {EXTENSION_PATH}", "ERROR")
         sys.exit(1)
     
-    log("Starting Chrome Extension Security Analysis")
-    log(f"Extension path: {EXTENSION_PATH}")
+    log("="*60)
+    log("Chrome Extension Security Analysis")
+    log("="*60)
+    log(f"Extension: {EXTENSION_PATH}")
     log(f"Model: {MODEL}")
+    log("="*60)
     
     # Create output directory
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -181,8 +207,8 @@ def main():
     # Analyze manifest first
     manifest_path = Path(EXTENSION_PATH) / "manifest.json"
     if manifest_path.exists():
-        log("=== Analyzing manifest.json ===")
-        result = analyze_file(manifest_path, FILE_PROMPT, MODEL)
+        log("\n=== Analyzing manifest.json ===")
+        result = analyze_file(manifest_path, MANIFEST_PROMPT, MODEL, is_manifest=True)
         all_results.append(result)
         
         with open(Path(OUTPUT_DIR) / "manifest.json.md", "w") as f:
@@ -191,12 +217,12 @@ def main():
         log("manifest.json not found", "WARN")
     
     # Analyze top files
-    log(f"=== Finding top {NUM_TOP_FILES} files ===")
+    log(f"\n=== Finding top {NUM_TOP_FILES} files ===")
     top_files = get_top_files(EXTENSION_PATH, NUM_TOP_FILES, exclude=["manifest.json"])
-    log(f"Found {len(top_files)} files to analyze")
+    log(f"Selected: {[Path(f).name for f in top_files]}")
     
     for idx, file_path in enumerate(top_files, 1):
-        log(f"=== File {idx}/{len(top_files)} ===")
+        log(f"\n=== File {idx}/{len(top_files)}: {Path(file_path).name} ===")
         result = analyze_file(file_path, FILE_PROMPT, MODEL)
         all_results.append(result)
         
@@ -205,26 +231,29 @@ def main():
             f.write(result)
     
     # Generate final assessment
-    log("=== Generating Final Assessment ===")
+    log("\n=== Generating final assessment ===")
     final_assessment = combine_results(all_results, MODEL)
     
     # Save combined report
     with open(COMBINED_OUTPUT, "w") as f:
         f.write("# Chrome Extension Security Analysis Report\n\n")
         f.write(f"**Extension**: {EXTENSION_PATH}\n")
-        f.write(f"**Analysis Date**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(f"**Date**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"**Model**: {MODEL}\n\n")
         f.write("---\n\n")
         f.write("## Final Assessment\n\n")
         f.write(final_assessment)
         f.write("\n\n---\n\n")
         f.write("## Individual File Analyses\n\n")
-        f.write("\n\n".join(all_results))
+        for idx, result in enumerate(all_results, 1):
+            f.write(f"### File {idx}\n\n")
+            f.write(result)
+            f.write("\n\n")
     
-    log("=" * 60)
-    log(f"✅ Analysis complete!", "SUCCESS")
-    log(f"Per-file results: {OUTPUT_DIR}/")
-    log(f"Combined report: {COMBINED_OUTPUT}")
+    log("\n" + "="*60)
+    log("✅ Analysis complete", "SUCCESS")
+    log(f"Results: {COMBINED_OUTPUT}")
+    log("="*60)
 
 
 if __name__ == "__main__":
