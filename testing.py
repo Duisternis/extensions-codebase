@@ -6,9 +6,9 @@ OUTPUT_DIR = "file_results"
 COMBINED_OUTPUT = "combined_report.md"
 MAX_CHARS = 10000
 NUM_TOP_FILES = 5
-MODEL = "qwen3:30b-120k"  # updated model
+MODEL = "ollama/qwen3:30b-120k"
 
-PROMPT = """You are a security expert analyzing a single Chrome extension file for potential security risks.
+PROMPT_TEMPLATE = """You are a security expert analyzing a single Chrome extension file for potential security risks.
 
 Focus on:
 - data theft
@@ -61,18 +61,28 @@ def analyze_file(filepath):
     except Exception as e:
         return f"**FILE**: {os.path.basename(filepath)}\n**ERROR**: {e}"
 
-    user_prompt = PROMPT.format(filename=os.path.basename(filepath)) + "\n\n" + content
+    prompt = PROMPT_TEMPLATE.format(filename=os.path.basename(filepath)) + "\n\n" + content
+
+    # Save prompt temporarily
+    temp_prompt_file = "temp_prompt.txt"
+    with open(temp_prompt_file, "w") as f:
+        f.write(prompt)
 
     try:
+        # Run OpenCode CLI using cat-style input
         result = subprocess.run(
-            ["opencode", "run", "-m", MODEL, "-p", user_prompt],
+            ["opencode", "run", "-m", MODEL, "$(cat temp_prompt.txt)"],
             capture_output=True,
             text=True,
+            shell=True,  # required for $(cat ...)
             check=True
         )
         return result.stdout.strip() or f"**FILE**: {os.path.basename(filepath)}\n**ERROR**: No output"
     except subprocess.CalledProcessError as e:
         return f"**FILE**: {os.path.basename(filepath)}\n**ERROR**: {e.stderr.strip()}"
+    finally:
+        if os.path.exists(temp_prompt_file):
+            os.remove(temp_prompt_file)
 
 # === MAIN ===
 os.makedirs(OUTPUT_DIR, exist_ok=True)
