@@ -63,20 +63,41 @@ Format:
 
 FINAL_PROMPT = """Based on the file analyses below, provide a comprehensive security assessment.
 
+CRITICAL: You must extract and synthesize ALL findings from the individual analyses.
+
 Requirements:
-- Use the HIGHEST risk level found
-- List specific findings (URLs, functions, permissions)
-- Explain the attack chain if malicious
-- Be technical and specific
+- Use the HIGHEST risk level and score found across ALL files
+- Include EVERY file with risk score > 1 in AFFECTED_FILES
+- Synthesize parameter findings from all files into PARAMETER_SUMMARY
+- List specific technical findings (URLs, functions, permissions)
+- Explain complete attack chain if malicious
 
 Format:
-**RISK_LEVEL**: [Highest from analyses]
-**RISK_SCORE**: [Highest from analyses]
-**MALICIOUS_INDICATORS**: [Specific findings from all files]
-**AFFECTED_FILES**: [Which files have issues]
-**ATTACK_VECTORS**: [Complete attack explanation]
-**RECOMMENDATIONS**: [Prioritized actions]
-**OVERALL_ASSESSMENT**: [3-5 sentence summary]
+**RISK_LEVEL**: [Highest from all analyses]
+**RISK_SCORE**: [Highest from all analyses]
+
+**PARAMETER_SUMMARY**:
+Data Collection: [Summary across all files]
+Network Activity: [Summary across all files]
+Code Obfuscation: [Summary across all files]
+Dangerous APIs: [Summary across all files]
+User Tracking: [Summary across all files]
+Permissions: [From manifest analysis]
+
+**MALICIOUS_INDICATORS**: 
+[Specific findings from ALL files with issues - include filename for each]
+
+**AFFECTED_FILES**: 
+[List EVERY file with risk score > 1, with their risk level and main issue]
+
+**ATTACK_VECTORS**: 
+[Complete attack explanation using findings from all files]
+
+**RECOMMENDATIONS**: 
+[Prioritized actions based on all findings]
+
+**OVERALL_ASSESSMENT**: 
+[3-5 sentence summary covering what was found and overall risk]
 
 File Analyses:
 """
