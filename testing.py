@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 import os
+import sys
 import subprocess
 from pathlib import Path
 from datetime import datetime
 
 # Configuration
-EXTENSION_PATH = "/root/playground/extensions-codebase/besafe"
 OUTPUT_DIR = "file_results"
 COMBINED_OUTPUT = "combined_report.md"
 MAX_CHARS = 10000
 NUM_TOP_FILES = 5
-MODEL = "ollama/qwen3:30b-120k"
 
 FILE_PROMPT = """You are a security expert analyzing a Chrome extension file.
 Focus on: data theft, privacy violations, suspicious network requests, dangerous permissions, code obfuscation, credential harvesting.
@@ -54,7 +53,7 @@ REQUIRED FORMAT:
 **OVERALL_ASSESSMENT**:
 [3-5 sentences explaining: What this extension does, what specific malicious behavior was found, and why it's dangerous. Use technical details.]
 
-Remember: Be SPECIFIC.
+Remember: Be SPECIFIC. Reference actual findings like "sends data to http://localhost:1234" not "unauthorized network requests".
 """
 
 
@@ -85,7 +84,7 @@ def get_top_files(path, num_files, exclude=None):
     return [str(f[0]) for f in files[:num_files]]
 
 
-def analyze_file(filepath, prompt_template):
+def analyze_file(filepath, prompt_template, model):
     """Analyze a single file using opencode."""
     filename = Path(filepath).name
     log(f"Reading {filename}...")
@@ -98,10 +97,10 @@ def analyze_file(filepath, prompt_template):
     
     prompt = prompt_template.format(filename=filename) + "\n\n" + content
     
-    log(f"Analyzing {filename} with {MODEL}...")
+    log(f"Analyzing {filename} with {model}...")
     try:
         result = subprocess.run(
-            ["opencode", "run", "-m", MODEL, prompt],
+            ["opencode", "run", "-m", model, prompt],
             capture_output=True,
             text=True,
             timeout=300  # 5 min timeout
@@ -128,7 +127,7 @@ def analyze_file(filepath, prompt_template):
         return f"**FILE**: {filename}\n**ERROR**: {e}"
 
 
-def combine_results(results):
+def combine_results(results, model):
     """Generate final assessment from individual file analyses."""
     log("Generating final assessment...")
     
@@ -137,7 +136,7 @@ def combine_results(results):
     
     try:
         result = subprocess.run(
-            ["opencode", "run", "-m", MODEL, prompt],
+            ["opencode", "run", "-m", model, prompt],
             capture_output=True,
             text=True,
             timeout=300
@@ -156,6 +155,20 @@ def combine_results(results):
 
 
 def main():
+    # Parse arguments
+    if len(sys.argv) < 3:
+        print("Usage: python script.py <extension_path> <model>")
+        print("Example: python script.py /path/to/extension ollama/qwen3:30b-120k")
+        sys.exit(1)
+    
+    EXTENSION_PATH = sys.argv[1]
+    MODEL = sys.argv[2]
+    
+    # Validate extension path
+    if not os.path.exists(EXTENSION_PATH):
+        log(f"Extension path does not exist: {EXTENSION_PATH}", "ERROR")
+        sys.exit(1)
+    
     log("Starting Chrome Extension Security Analysis")
     log(f"Extension path: {EXTENSION_PATH}")
     log(f"Model: {MODEL}")
@@ -169,7 +182,7 @@ def main():
     manifest_path = Path(EXTENSION_PATH) / "manifest.json"
     if manifest_path.exists():
         log("=== Analyzing manifest.json ===")
-        result = analyze_file(manifest_path, FILE_PROMPT)
+        result = analyze_file(manifest_path, FILE_PROMPT, MODEL)
         all_results.append(result)
         
         with open(Path(OUTPUT_DIR) / "manifest.json.md", "w") as f:
@@ -184,7 +197,7 @@ def main():
     
     for idx, file_path in enumerate(top_files, 1):
         log(f"=== File {idx}/{len(top_files)} ===")
-        result = analyze_file(file_path, FILE_PROMPT)
+        result = analyze_file(file_path, FILE_PROMPT, MODEL)
         all_results.append(result)
         
         safe_name = Path(file_path).name.replace("/", "_")
@@ -193,7 +206,7 @@ def main():
     
     # Generate final assessment
     log("=== Generating Final Assessment ===")
-    final_assessment = combine_results(all_results)
+    final_assessment = combine_results(all_results, MODEL)
     
     # Save combined report
     with open(COMBINED_OUTPUT, "w") as f:
