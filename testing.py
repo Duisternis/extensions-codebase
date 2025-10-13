@@ -1,15 +1,13 @@
 import os
-import json
 import subprocess
 
-# === CONFIG ===
 EXTENSION_PATH = "/root/playground/extensions-codebase/besafe"
-OUTPUT_DIR = "file_results"  # per-file outputs
+OUTPUT_DIR = "file_results"
 COMBINED_OUTPUT = "combined_report.md"
-MAX_CHARS = 10000  # trim very large files
-NUM_TOP_FILES = 5  # top N files by size
+MAX_CHARS = 10000
+NUM_TOP_FILES = 5
+MODEL = "qwen3:30b-120k"  # updated model
 
-# === PROMPT TEMPLATE ===
 PROMPT = """You are a security expert analyzing a single Chrome extension file for potential security risks.
 
 Focus on:
@@ -37,10 +35,9 @@ Provide ONLY this format:
 **RECOMMENDATIONS**:
 [Security recommendations or "File appears safe"]
 
-Be concise but thorough. Respond only in the above format.
+Be concise but thorough.
 """
 
-# === HELPERS ===
 def get_files_by_size(path, exclude_files=[]):
     files = []
     for root, _, filenames in os.walk(path):
@@ -68,23 +65,20 @@ def analyze_file(filepath):
 
     try:
         result = subprocess.run(
-            ["opencode", "run", "--json", user_prompt],
+            ["opencode", "run", "-m", MODEL, "-p", user_prompt],
             capture_output=True,
             text=True,
             check=True
         )
-        data = json.loads(result.stdout)
-        return data.get("text", "").strip() or "No output"
+        return result.stdout.strip() or f"**FILE**: {os.path.basename(filepath)}\n**ERROR**: No output"
     except subprocess.CalledProcessError as e:
         return f"**FILE**: {os.path.basename(filepath)}\n**ERROR**: {e.stderr.strip()}"
-    except Exception as e:
-        return f"**FILE**: {os.path.basename(filepath)}\n**ERROR**: {e}"
 
 # === MAIN ===
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 all_results = []
 
-# Step 1: always analyze manifest.json
+# Analyze manifest.json first
 manifest_path = os.path.join(EXTENSION_PATH, "manifest.json")
 if os.path.exists(manifest_path):
     print(f"Analyzing manifest: {manifest_path}")
@@ -93,7 +87,7 @@ if os.path.exists(manifest_path):
     with open(os.path.join(OUTPUT_DIR, "manifest.json.md"), "w") as f:
         f.write(result)
 
-# Step 2: analyze top N largest files (excluding manifest.json)
+# Analyze top N largest files (excluding manifest)
 top_files = get_files_by_size(EXTENSION_PATH, exclude_files=["manifest.json"])
 for file_path in top_files:
     print(f"Analyzing: {file_path}")
@@ -103,7 +97,7 @@ for file_path in top_files:
     with open(os.path.join(OUTPUT_DIR, f"{file_name}.md"), "w") as f:
         f.write(result)
 
-# Step 3: save combined report
+# Save combined report
 with open(COMBINED_OUTPUT, "w") as f:
     f.write("\n\n".join(all_results))
 
