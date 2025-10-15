@@ -1,0 +1,96 @@
+Analyze the browser extension log file in the directory.
+
+This file contains browser extension behavioral analysis logs in the following format:
+
+HEADER SECTION:
+[PHASE] ANALYSIS LOG FILE
+Extension ID: [extension_id]
+Job ID: [job_id]  
+Generated: [timestamp]
+Total Logs: [number]
+=====================================================================
+
+LOG ENTRIES FORMAT:
+Timestamp: YYYY-MM-DD HH:MM:SS.microseconds
+Type: API_LOG | NETWORK_LOG | PLAYWRIGHT_LOG
+Data: {{json_data}}
+----------------------------------------
+
+API_LOG ENTRY STRUCTURE:
+{{
+  "timestamp": "timestamp",
+  "job_id": "job_identifier", 
+  "id": "log_entry_id",
+  "extension_id": "extension_identifier",
+  "extension_name": "Extension Name",
+  "call_type": "API CALL" | "HANDLER CALL",
+  "api_name": "extension_api_method_name",
+  "arguments": "function_arguments_or_parameters",
+  "function_body": "actual_function_code_if_available"
+}}
+
+NETWORK_LOG ENTRY STRUCTURE:
+{{
+  "timestamp": "timestamp",
+  "job_id": "job_identifier",
+  "id": "log_entry_id", 
+  "extension_id": "extension_identifier",
+  "extension": "browser-extension://extension_id",
+  "host": "target_domain",
+  "path": "/api/endpoint_path",
+  "method": "HTTP_METHOD",
+  "scheme": "https" | "http",
+  "authority": "domain:port",
+  "http_version": "HTTP_VERSION",
+  "headers": "request_headers",
+  "content": "request_body_data",
+  "status_code": "response_code",
+  "response_headers": "response_headers",
+  "response_content": "response_body"
+}}
+
+CRITICAL ANALYSIS INSTRUCTIONS:
+- ONLY analyze API_LOG and NETWORK_LOG entries - COMPLETELY IGNORE all PLAYWRIGHT_LOG entries
+- Do not reference the filename in your reasoning
+- Do not mention playwright, automation, interaction, or navigation activities
+- Connection to localhost or any ports are done during testing, so don't treat as suspicious
+- The reasoning should not start with 'The extension', 'This extension', 'The logs' or related terms
+- If both API_LOG and NETWORK_LOG entries are 0 (if any one is not 0 then give reasoning and analyze those entries). Both should be 0 then only provide this exact reasoning: "There is no evidence of any API calls or network requests made by the extension. Consequently, the extension's behavior appears benign, with minimal risk."
+
+ANALYSIS REQUIREMENTS:
+Provide detailed paragraph-format analysis that includes specific information about:
+- Browser extension APIs used (storage, runtime, tabs, webRequest, alarms, etc.)
+- Network requests made (specific domains, URLs, request types)
+- Data being transmitted or received
+- Security implications and why the behavior is concerning or normal
+- Concrete evidence from the logs
+
+Give verdict malicious only if really harmful behavior is detected in API or network logs.
+
+ANALYSIS RULES:
+1. Examine all API_LOG and NETWORK_LOG entries thoroughly
+2. Document specific browser extension APIs being called
+3. List actual network communications with domains/URLs
+4. Analyze data transmission patterns and security implications
+5. Provide evidence-based reasoning in paragraph format
+6. Assign verdict based on actual observed behavior patterns
+
+VERDICT DEFINITIONS:
+- "malicious": Multiple indicators of harmful intent, such as:  * Data exfiltration to untrusted domains combined with credential harvesting  * Command-and-control (C2) communication patterns  * Persistent backdoors coupled with unauthorized access to sensitive APIs  * Multiple stealth or evasion techniques (obfuscation, hidden network calls)  * Unauthorized access to sensitive data combined with external transmission 
+
+- "risky": Combination of suspicious behaviors without clear malicious intent:  * Unusual permission usage combined with unexpected network connections  * Collection of sensitive data with unclear purpose  * Excessive API permissions beyond stated functionality  * Communication with recently registered or low-reputation domains  * Multiple non-standard implementation techniques that reduce transparency 
+- "benign": Normal extension behaviors consistent with legitimate functionality:  * API usage aligned with stated extension purpose  * Network connections limited to documented services and trusted domains  * Standard data handling patterns with appropriate security measures  * Transparent functionality without obfuscation or evasion techniques  * Expected and documented behavior patterns throughout
+
+RISK SCORE SCALE (1-5):
+1: Minimal risk - Standard extension functionality only
+2: Low risk - Minor concerns but no clear threat
+3: Medium risk - Moderate suspicious behavior, potential for misuse
+4: High risk - Significant suspicious activity, likely security concerns
+5: Critical risk - Clear evidence of malicious behavior
+
+Respond with ONLY this JSON format:
+{{
+  "verdict": "benign",
+  "risk_score": 1,
+  "reasoning": "Comprehensive paragraph detailing specific APIs observed and network requests made to domains and security assessment explaining why this behavior is benign/risky/malicious based on concrete evidence from API calls and network activity."
+}}
