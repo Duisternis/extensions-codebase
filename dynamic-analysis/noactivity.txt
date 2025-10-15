@@ -1,0 +1,404 @@
+NOACTIVITY ANALYSIS LOG FILE
+Extension ID: aicmkgpgakddgnaphhhpliifpcfhicfo
+Job ID: api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo
+Generated: 2025-09-26T08:57:09.060051
+Total Logs: 25
+================================================================================
+
+Timestamp: 2025-09-26 08:56:37.415560
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.415560",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "1",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "storage.local.get",
+  "arguments": "\"requestCaptureEnabledForChromeApp\",\"requestCaptureFilterUrlForChromeApp\",\"showWebAppSupportBanner\"],null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:37.549223
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.549223",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "2",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.getManifest",
+  "arguments": "",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:37.550480
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.550480",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "3",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.getManifest",
+  "arguments": "",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:37.550954
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.550954",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "4",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "storage.local.get",
+  "arguments": "\"secretKey\"],null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:37.553125
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.553125",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "5",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.getManifest",
+  "arguments": "",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:37.553617
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.553617",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "6",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "tabs.query",
+  "arguments": "{\"url\":[\"*://*.postman-beta.co/*\",\"*://*.postman-stage.co/*\",\"*://*.postman-preview.co/*\",\"*://*.postman.co/*\"]},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:37.558367
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.558367",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "7",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "storage.local.get",
+  "arguments": "\"interceptorMode\"],null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:37.611513
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.611513",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "8",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "storage.local.set",
+  "arguments": "{\"showWebAppSupportBanner\":true},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:37.612767
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.612767",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "9",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "HANDLER CALL",
+  "api_name": "runtime.onInstalled.addListener",
+  "arguments": "{\"reason\":\"install\"}",
+  "function_body": "function(){e.updateInterceptorMode(a.xA)}"
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:37.614589
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:37.614589",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "10",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "storage.local.set",
+  "arguments": "{\"interceptorMode\":\"NATIVE_MODE\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:39.580446
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:39.580446",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "11",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.sendNativeMessage",
+  "arguments": "\"com.postman.postmanapp\",{\"type\":\"HELO\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:39.590638
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:39.590638",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "12",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "HANDLER CALL",
+  "api_name": "webRequest.onBeforeRequest.addListener",
+  "arguments": "{\"frameId\":-1,\"initiator\":\"chrome-extension://aicmkgpgakddgnaphhhpliifpcfhicfo\",\"method\":\"POST\",\"parentFrameId\":-1,\"requestBody\":{\"raw\":[{\"bytes\":{}}]},\"requestId\":\"67\",\"tabId\":-1,\"timeStamp\":1758876999456.772,\"type\":\"xmlhttprequest\",\"url\":\"https://analytics.getpostman.com/events\"}",
+  "function_body": "function pe(e){N(e)&&!O(e)&&(M()||P())&&(te[e.requestId]=e)}"
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:39.594738
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:39.594738",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "13",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "HANDLER CALL",
+  "api_name": "webRequest.onBeforeSendHeaders.addListener",
+  "arguments": "{\"frameId\":-1,\"initiator\":\"chrome-extension://aicmkgpgakddgnaphhhpliifpcfhicfo\",\"method\":\"POST\",\"parentFrameId\":-1,\"requestHeaders\":[{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36\"},{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Accept\",\"value\":\"*/*\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"cors\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"empty\"}],\"requestId\":\"67\",\"tabId\":-1,\"timeStamp\":1758876999500.089,\"type\":\"xmlhttprequest\",\"url\":\"https://analytics.getpostman.com/events\"}",
+  "function_body": "function le(e){var r=ce(e);if(r.initiator===r.selfUrl){var n,o=function(e,t){var r=\"undefined\"!=typeof Symbol&&e[Symbol.iterator]||e[\"@@iterator\"];if(!r){if(Array.isArray(e)||(r=function(e,t){if(e){if(\"string\"==typeof e)return Z(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);return\"Object\"===r&&e.constructor&&(r=e.constructor.name),\"Map\"===r||\"Set\"===r?Array.from(e):\"Arguments\"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?Z(e,t):void 0}}(e))||t&&e&&\"number\"==typeof e.length){r&&(e=r);var n=0,o=function(){};return{s:o,n:function(){return n>=e.length?{done:!0}:{done:!1,value:e[n++]}},e:function(e){throw e},f:o}}throw new TypeError(\"Invalid attempt to iterate non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\")}var i,a=!0,s=!1;return{s:function(){r=r.call(e)},n:function(){var e=r.next();return a=e.done,e},e:function(e){s=!0,i=e},f:function(){try{a||null==r.return||r.return()}finally{if(s)throw i}}}}(e.requestHeaders);try{for(o.s();!(n=o.n()).done;){var i=n.value;if(\"postman-token\"===i.name){ye.set(e.requestId,i.value);break}}}catch(e){o.e(e)}finally{o.f()}}var a,s,u=t().find(e.requestHeaders,(function(e){return e.name.startsWith(\"Postman-\")})),c=t().find(e.requestHeaders,(function(e){return e.name===oe})),l=e.requestHeaders,f=[],p=0;if(c&&!ne[e.requestId]&&(re[c.value].requestId=e.requestId,ne[e.requestId]={postmanMessage:re[c.value].postmanMessage,requestToken:c.value}),u){var h;for(p=0,h=l.length;p<h;p++)0===(a=l[p].name).search(\"Postman-\")&&\"Postman-Token\"!==a&&(s=l[p].name.substr(8),f.push({name:s,value:l[p].value}),l.splice(p,1),h--,p--);for(var d=0;d<f.length;d++)l.push(f[d]);delete te[e.requestId]}return{requestHeaders:l}}"
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:39.595306
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:39.595306",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "14",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "HANDLER CALL",
+  "api_name": "webRequest.onSendHeaders.addListener",
+  "arguments": "{\"frameId\":-1,\"initiator\":\"chrome-extension://aicmkgpgakddgnaphhhpliifpcfhicfo\",\"method\":\"POST\",\"parentFrameId\":-1,\"requestHeaders\":[{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36\"},{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Accept\",\"value\":\"*/*\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"cors\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"empty\"}],\"requestId\":\"67\",\"tabId\":-1,\"timeStamp\":1758876999500.165,\"type\":\"xmlhttprequest\",\"url\":\"https://analytics.getpostman.com/events\"}",
+  "function_body": "function he(e){if(N(e)&&!O(e)&&(M()||P()))if(te.hasOwnProperty(e.requestId)){var r=te[e.requestId];r.requestHeaders=e.requestHeaders||[];for(var n=0;n<r.requestHeaders.length;n++)if(\"Content-Length\"===r.requestHeaders[n].name){r.requestHeaders.splice(n,1);break}!function(e,r){var n,o={url:te[e].url.substring(0,150),method:te[e].method},s=te[e];if(i.isMethodWithBody(s.method)&&s.requestBody&&(n=t().has(s.requestBody,\"formData\")?\"formData\":\"rawData\",s.requestBodyType=n,\"rawData\"===n))if(s.requestBody.raw&&s.requestBody.raw[0]){var u=i.getBase64FromArrayBuffer(s.requestBody.raw[0].bytes);s.requestBody.rawData=u,delete s.requestBody.raw}else s.requestBody.rawData=null;var c=setTimeout((function(){Ae()&&Se({isPostmanEnabledWarning:!0})}),500);if(M()&&x(s)&&chrome.runtime.sendMessage(J,{postmanMessage:{reqId:e,request:te[e],type:ee}},(function(t){t?console.log(\"Request sent to Postman chrome app for request id:\",e):chrome.runtime.lastError.message!==ie&&(ie=chrome.runtime.lastError.message,console.log(chrome.runtime.lastError.message)),function(e){ae.push(e),Ae()&&Se({type:a.gf,payload:ae})}(o),delete te[e],clearTimeout(c),Ae()&&Se({isPostmanEnabledWarning:!1})})),P()&&k(te[e])){var l={type:a.Hg,message:{postmanMessage:{reqId:e,request:te[e],type:ee}}};$t.sendSecureMessage(l),function(e){se.push(e),Ae()&&Se({type:a.v4,payload:se})}(o)}}(e.requestId),\"safari\"===d.browser&&h.fetchCookiesForCurrentDomain(e.url)}else console.log(\"Error - Key not found \",e.requestId,e.method,e.url);\"safari\"===d.browser&&h.fetchAllCookies()}"
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:39.737797
+Type: NETWORK_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:39.737797",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "15",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension": "chrome-extension://aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "host": "analytics.getpostman.com",
+  "path": "/events",
+  "method": "POST",
+  "scheme": "https",
+  "authority": "analytics.getpostman.com:443",
+  "http_version": "HTTP/2.0",
+  "headers": ":authority: analytics.getpostman.com\ncontent-length: 324\nuser-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36\ncontent-type: text/plain\naccept: */*\norigin: chrome-extension://aicmkgpgakddgnaphhhpliifpcfhicfo\nsec-fetch-site: none\nsec-fetch-mode: cors\nsec-fetch-dest: empty\naccept-encoding: gzip, deflate, br, zstd\naccept-language: en-US,en;q=0.9\npriority: u=1, i",
+  "content": "eyJjYXRlZ29yeSI6ImludGVyY2VwdG9yLXNlc3Npb24iLCJhY3Rpb24iOiJicmlkZ2Utbm90LWluc3RhbGxlZCIsImxhYmVsIjoiaW50ZXJjZXB0b3ItZXh0ZW5zaW9uIiwidGltZXN0YW1wIjoiMjAyNS0wOS0yNlQwODo1NjozOS40NDlaIiwidHlwZSI6ImV2ZW50cy1nZW5lcmFsIiwiZW52IjoicHJvZHVjdGlvbiIsInByb3BlcnR5IjoicG9zdG1hbi1pbnRlcmNlcHRvciIsInV0bV9zb3VyY2UiOiJnb29nbGUtY2hyb21lIn0=",
+  "status_code": "",
+  "status_message": "",
+  "response_headers": "",
+  "response_content": "",
+  "response_size": "",
+  "timestamp_start": "1758876999.729396",
+  "timestamp_end": "1758876999.7315753"
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:39.916951
+Type: NETWORK_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:39.916951",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "16",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension": "chrome-extension://aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "host": "analytics.getpostman.com",
+  "path": "/events",
+  "method": "POST",
+  "scheme": "https",
+  "authority": "analytics.getpostman.com:443",
+  "http_version": "HTTP/2.0",
+  "headers": "",
+  "content": "",
+  "status_code": "200",
+  "status_message": "",
+  "response_headers": "date: Fri, 26 Sep 2025 08:56:39 GMT\ncontent-type: application/json; charset=utf-8\ncontent-encoding: gzip\nx-srv-trace: v=1;t=d0d85fe9a96718cd\nx-srv-span: v=1;s=e1438a4d01f1521a\naccess-control-allow-origin: *\netag: W/\"36-n54rWavezIQk1MDLdNFdiB46fQ8\"\nvary: Accept-Encoding\nx-envoy-upstream-service-time: 3\ncf-cache-status: DYNAMIC\nset-cookie: __cf_bm=6wkl4qxObStgfsZMU98B5Zh2atrnHeDfvlQVVJE2d5E-1758876999-1.0.1.1-UJzDUcVpupy.IbLFLHge.ASaV.6QbGywFMDWoiJVTjBwGtEvThVOUKQJm3yulyzfQYx3WBCcClFrO9S8AFX8sbOKuDqbhQfNXoFuMBxkYlo; path=/; expires=Fri, 26-Sep-25 09:26:39 GMT; domain=.getpostman.com; HttpOnly; Secure; SameSite=None\nstrict-transport-security: max-age=31536000; includeSubDomains; preload\nx-content-type-options: nosniff\nserver: cloudflare\ncf-ray: 98518ca07946e207-ORD",
+  "response_content": "{\"Encrypted\":true,\"RecordId\":\"payload_added_in_batch\"}",
+  "response_size": "54",
+  "timestamp_start": "1758876999.729396",
+  "timestamp_end": "1758876999.8754153"
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:39.957465
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:39.957465",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "17",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "HANDLER CALL",
+  "api_name": "webRequest.onHeadersReceived.addListener",
+  "arguments": "{\"frameId\":-1,\"initiator\":\"chrome-extension://aicmkgpgakddgnaphhhpliifpcfhicfo\",\"method\":\"POST\",\"parentFrameId\":-1,\"requestId\":\"67\",\"responseHeaders\":[{\"name\":\"date\",\"value\":\"Fri, 26 Sep 2025 08:56:39 GMT\"},{\"name\":\"content-type\",\"value\":\"application/json; charset=utf-8\"},{\"name\":\"content-encoding\",\"value\":\"gzip\"},{\"name\":\"x-srv-trace\",\"value\":\"v=1;t=d0d85fe9a96718cd\"},{\"name\":\"x-srv-span\",\"value\":\"v=1;s=e1438a4d01f1521a\"},{\"name\":\"access-control-allow-origin\",\"value\":\"*\"},{\"name\":\"etag\",\"value\":\"W/\\\"36-n54rWavezIQk1MDLdNFdiB46fQ8\\\"\"},{\"name\":\"vary\",\"value\":\"Accept-Encoding\"},{\"name\":\"x-envoy-upstream-service-time\",\"value\":\"3\"},{\"name\":\"cf-cache-status\",\"value\":\"DYNAMIC\"},{\"name\":\"set-cookie\",\"value\":\"__cf_bm=6wkl4qxObStgfsZMU98B5Zh2atrnHeDfvlQVVJE2d5E-1758876999-1.0.1.1-UJzDUcVpupy.IbLFLHge.ASaV.6QbGywFMDWoiJVTjBwGtEvThVOUKQJm3yulyzfQYx3WBCcClFrO9S8AFX8sbOKuDqbhQfNXoFuMBxkYlo; path=/; expires=Fri, 26-Sep-25 09:26:39 GMT; domain=.getpostman.com; HttpOnly; Secure; SameSite=None\"},{\"name\":\"strict-transport-security\",\"value\":\"max-age=31536000; includeSubDomains; preload\"},{\"name\":\"x-content-type-options\",\"value\":\"nosniff\"},{\"name\":\"server\",\"value\":\"cloudflare\"},{\"name\":\"cf-ray\",\"value\":\"98518ca07946e207-ORD\"}],\"statusCode\":200,\"statusLine\":\"HTTP/1.1 200\",\"tabId\":-1,\"timeStamp\":1758876999930.686,\"type\":\"xmlhttprequest\",\"url\":\"https://analytics.getpostman.com/events\"}",
+  "function_body": "function de(e){if(ye.has(e.requestId)){var t=ye.get(e.requestId);ve.set(t,e.responseHeaders),ge.set(t,e.statusCode),ye.delete(e.requestId)}else{var r=ce(e);r.initiator==r.selfUrl&&(ve.set(e.url,e.responseHeaders),ge.set(e.url,e.statusCode))}}"
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:41.656585
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:41.656585",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "18",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.sendNativeMessage",
+  "arguments": "\"com.postman.postmanapp\",{\"type\":\"HELO\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:43.439737
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:43.439737",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "19",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.sendNativeMessage",
+  "arguments": "\"com.postman.postmanapp\",{\"type\":\"HELO\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:45.435544
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:45.435544",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "20",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.sendNativeMessage",
+  "arguments": "\"com.postman.postmanapp\",{\"type\":\"HELO\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:47.446759
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:47.446759",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "21",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.sendNativeMessage",
+  "arguments": "\"com.postman.postmanapp\",{\"type\":\"HELO\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:49.437841
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:49.437841",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "22",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.sendNativeMessage",
+  "arguments": "\"com.postman.postmanapp\",{\"type\":\"HELO\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:51.432533
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:51.432533",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "23",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.sendNativeMessage",
+  "arguments": "\"com.postman.postmanapp\",{\"type\":\"HELO\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:53.447013
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:53.447013",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "24",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.sendNativeMessage",
+  "arguments": "\"com.postman.postmanapp\",{\"type\":\"HELO\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-09-26 08:56:55.483389
+Type: API_LOG
+Data: {
+  "timestamp": "2025-09-26 08:56:55.483389",
+  "job_id": "api-analysis-20250926_084600_156-aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "id": "25",
+  "extension_id": "aicmkgpgakddgnaphhhpliifpcfhicfo",
+  "extension_name": "Postman Interceptor",
+  "call_type": "API CALL",
+  "api_name": "runtime.sendNativeMessage",
+  "arguments": "\"com.postman.postmanapp\",{\"type\":\"HELO\"},null",
+  "function_body": ""
+}
+----------------------------------------
+
