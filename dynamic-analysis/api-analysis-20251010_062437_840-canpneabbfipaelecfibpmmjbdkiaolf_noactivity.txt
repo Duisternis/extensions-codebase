@@ -1,0 +1,412 @@
+NOACTIVITY ANALYSIS LOG FILE
+Extension ID: canpneabbfipaelecfibpmmjbdkiaolf
+Job ID: api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf
+Generated: 2025-10-10T06:59:44.635680
+Total Logs: 27
+================================================================================
+
+Timestamp: 2025-10-10 06:59:21.430165
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:21.430165",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "1",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "storage.local.get",
+  "arguments": "\"reduxed\",null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:22.569647
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:22.569647",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "2",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "HANDLER CALL",
+  "api_name": "runtime.onInstalled.addListener",
+  "arguments": "{\"reason\":\"install\"}",
+  "function_body": "function(e){return x(this,void 0,void 0,(function(){var t,o;return _(this,(function(r){switch(r.label){case 0:return[E.INSTALL,E.UPDATE].includes(e.reason)?[4,(0,d.instantiateGlobalStore)()]:[3,6];case 1:if(t=r.sent(),t.getState().app[g.KeyAppSlice.ClientId]||t.dispatch((0,y.setClientId)((0,b.generateHash)(v.GA4.clientIdLen))),t.getState().app[g.KeyAppSlice.UserGeoInfo])return[3,5];r.label=2;case 2:return r.trys.push([2,4,,5]),[4,(0,j.getUserGeoInfo)()];case 3:return o=r.sent(),t.dispatch((0,y.setUserGeoInfo)(o)),[3,5];case 4:return r.sent(),[3,5];case 5:t.dispatch((0,h.resetPixel)()),t.dispatch((0,k.resetToastState)()),r.label=6;case 6:return[2]}}))}))}"
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:22.885858
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:22.885858",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "3",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "storage.local.get",
+  "arguments": "\"reduxed\",null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.064899
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.064899",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "4",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "alarms.create",
+  "arguments": "\"CLEAR_SLEEP_TAB_ALARM\",{\"periodInMinutes\":0.5}",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.069498
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.069498",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "5",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "HANDLER CALL",
+  "api_name": "runtime.onInstalled.addListener",
+  "arguments": "{\"reason\":\"install\"}",
+  "function_body": "function(t){return n(e,void 0,void 0,(function(){var e,o;return a(this,(function(n){switch(n.label){case 0:if(![chrome.runtime.OnInstalledReason.INSTALL,chrome.runtime.OnInstalledReason.UPDATE].includes(t.reason))return[3,4];e=chrome.runtime.getURL(\"config.txt\"),n.label=1;case 1:return n.trys.push([1,3,,4]),[4,fetch(e).then((function(e){return e.json()}))];case 2:return(o=n.sent()).shouldOpen&&chrome.tabs.create({url:o.url}),[3,4];case 3:return n.sent(),[3,4];case 4:return(0,r.isDev)()||chrome.runtime.setUninstallURL(\"https://trafikant.pro/trafikant-pixel-helper-uninstall-survey/\"),[2]}}))}))}"
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.091770
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.091770",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "6",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "webRequest.onBeforeRequest.hasListener",
+  "arguments": "null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.107706
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.107706",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "7",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "runtime.getURL",
+  "arguments": "\"config.txt\"",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.124700
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.124700",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "8",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "storage.local.set",
+  "arguments": "{\"reduxed\":[\"fade9ce1-951b-4006-a744-cb154af099e8\",0,{\"pixel\":{\"recordPixel\":{},\"GtmDataLayerName\":\"dataLayer\"},\"app\":{\"CloudData\":{\"messages\":{\"topRightMessage\":{\"message\":\"\"},\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"video\":{\"link\":\"\"}},\"lastUpdatedAt\":0},\"License\":{\"licenseState\":\"initial\",\"lastChecked\":0,\"thiefCount\":0},\"Fetching\":{\"option\":false},\"Sleep\":false},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"GtagManager\":{\"Hide paused tags\":true,\"Sort tags alphabetically\":true,\"Highlight tag with errors\":true,\"Highlight tag fired multiple times\":true},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"toast\":{\"tabState\":{},\"toastPage\":0,\"toastDirection\":\"ltr\",\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100}}}]},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.191180
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.191180",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "9",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "webRequest.onSendHeaders.hasListener",
+  "arguments": "null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.369064
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.369064",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "10",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "webRequest.onCompleted.hasListener",
+  "arguments": "null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.445890
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.445890",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "11",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "webRequest.onErrorOccurred.hasListener",
+  "arguments": "null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.453118
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.453118",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "12",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "webRequest.handlerBehaviorChanged",
+  "arguments": "",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.535902
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.535902",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "13",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "action.setIcon",
+  "arguments": "{\"path\":\"/icon128.png\"}",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.543389
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.543389",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "14",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "alarms.create",
+  "arguments": "\"verify-license-alarm\",{\"delayInMinutes\":0,\"periodInMinutes\":1}",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.549329
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.549329",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "15",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "alarms.get",
+  "arguments": "\"verify-license-alarm\"",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.657910
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.657910",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "16",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "runtime.setUninstallURL",
+  "arguments": "\"https://trafikant.pro/trafikant-pixel-helper-uninstall-survey/\"",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.747776
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.747776",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "17",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "storage.local.set",
+  "arguments": "{\"reduxed\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",0,{\"pixel\":{\"recordPixel\":{},\"GtmDataLayerName\":\"dataLayer\"},\"app\":{\"CloudData\":{\"messages\":{\"topRightMessage\":{\"message\":\"\"},\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"video\":{\"link\":\"\"}},\"lastUpdatedAt\":0},\"License\":{\"licenseState\":\"initial\",\"lastChecked\":0,\"thiefCount\":0},\"Fetching\":{\"option\":false},\"Sleep\":false},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"GtagManager\":{\"Hide paused tags\":true,\"Sort tags alphabetically\":true,\"Highlight tag with errors\":true,\"Highlight tag fired multiple times\":true},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"toast\":{\"tabState\":{},\"toastPage\":0,\"toastDirection\":\"ltr\",\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100}}}]},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.771658
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.771658",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "18",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "storage.local.set",
+  "arguments": "{\"reduxed\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",1760079562737,{\"pixel\":{\"recordPixel\":{},\"GtmDataLayerName\":\"dataLayer\"},\"app\":{\"CloudData\":{\"messages\":{\"topRightMessage\":{\"message\":\"\"},\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"video\":{\"link\":\"\"}},\"lastUpdatedAt\":0},\"License\":{\"licenseState\":\"initial\",\"lastChecked\":0,\"thiefCount\":0},\"Fetching\":{\"option\":false},\"Sleep\":false,\"ClientId\":\"sgJ3n1GqKHI5MUlgKlVoU18RzFRymoCwS6dRQ2dwVr6ud79RxF\"},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"GtagManager\":{\"Hide paused tags\":true,\"Sort tags alphabetically\":true,\"Highlight tag with errors\":true,\"Highlight tag fired multiple times\":true},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"toast\":{\"tabState\":{},\"toastPage\":0,\"toastDirection\":\"ltr\",\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100}}}]},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.802527
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.802527",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "19",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "HANDLER CALL",
+  "api_name": "storage.onChanged.addListener",
+  "arguments": "{\"reduxed\":{\"newValue\":[\"fade9ce1-951b-4006-a744-cb154af099e8\",0,{\"app\":{\"CloudData\":{\"lastUpdatedAt\":0,\"messages\":{\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"topRightMessage\":{\"message\":\"\"},\"video\":{\"link\":\"\"}}},\"Fetching\":{\"option\":false},\"License\":{\"lastChecked\":0,\"licenseState\":\"initial\",\"thiefCount\":0},\"Sleep\":false},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"GtagManager\":{\"Hide paused tags\":true,\"Highlight tag fired multiple times\":true,\"Highlight tag with errors\":true,\"Sort tags alphabetically\":true},\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"pixel\":{\"GtmDataLayerName\":\"dataLayer\",\"recordPixel\":{}},\"toast\":{\"tabState\":{},\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100},\"toastDirection\":\"ltr\",\"toastPage\":0}}]}},\"local\"",
+  "function_body": "(t,o)=>{if(o!==this.areaName||!(this.key in t))return;const{newValue:r,oldValue:n}=t[this.key];r&&e(r,n)}"
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.840644
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.840644",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "20",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "HANDLER CALL",
+  "api_name": "alarms.onAlarm.addListener",
+  "arguments": "{\"name\":\"verify-license-alarm\",\"periodInMinutes\":1,\"scheduledTime\":1760079562693.653}",
+  "function_body": "function(t){return i(this,void 0,void 0,(function(){var o,i,u,l;return s(this,(function(s){switch(s.label){case 0:return t.name!==c?[2]:[4,chrome.tabs.query({})];case 1:return o=s.sent(),i=e.getState(),u=i.app[n.KeyAppSlice.ActiveTab],l=i.pixel,Object.keys(l).forEach((function(t){if((0,r.isNumber)(t)&&t!=u){var n=o.find((function(e){return e.id==parseInt(t)}));(0,r.isTabSleep)(l,t)&&(n&&(0,r.isTabBeingRecorded)(e.getState(),n)||(e.dispatch((0,a.resetPixelOnTab)(t)),e.dispatch((0,a.setLastActiveTimeOnTab)({tabId:t,sleep:!0}))))}})),[2]}}))}))}"
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.849783
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.849783",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "21",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "HANDLER CALL",
+  "api_name": "alarms.onAlarm.addListener",
+  "arguments": "{\"name\":\"verify-license-alarm\",\"periodInMinutes\":1,\"scheduledTime\":1760079562693.653}",
+  "function_body": "function(t){return d(this,void 0,void 0,(function(){return f(this,(function(o){switch(o.label){case 0:return t.name!==h?[2]:(g=!0,console.log(\"Interval that runs every 5 min\"),[4,y(e)]);case 1:return o.sent(),[2]}}))}))}"
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.915196
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.915196",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "22",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "HANDLER CALL",
+  "api_name": "storage.onChanged.addListener",
+  "arguments": "{\"reduxed\":{\"newValue\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",0,{\"app\":{\"CloudData\":{\"lastUpdatedAt\":0,\"messages\":{\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"topRightMessage\":{\"message\":\"\"},\"video\":{\"link\":\"\"}}},\"Fetching\":{\"option\":false},\"License\":{\"lastChecked\":0,\"licenseState\":\"initial\",\"thiefCount\":0},\"Sleep\":false},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"GtagManager\":{\"Hide paused tags\":true,\"Highlight tag fired multiple times\":true,\"Highlight tag with errors\":true,\"Sort tags alphabetically\":true},\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"pixel\":{\"GtmDataLayerName\":\"dataLayer\",\"recordPixel\":{}},\"toast\":{\"tabState\":{},\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100},\"toastDirection\":\"ltr\",\"toastPage\":0}}],\"oldValue\":[\"fade9ce1-951b-4006-a744-cb154af099e8\",0,{\"app\":{\"CloudData\":{\"lastUpdatedAt\":0,\"messages\":{\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"topRightMessage\":{\"message\":\"\"},\"video\":{\"link\":\"\"}}},\"Fetching\":{\"option\":false},\"License\":{\"lastChecked\":0,\"licenseState\":\"initial\",\"thiefCount\":0},\"Sleep\":false},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"GtagManager\":{\"Hide paused tags\":true,\"Highlight tag fired multiple times\":true,\"Highlight tag with errors\":true,\"Sort tags alphabetically\":true},\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"pixel\":{\"GtmDataLayerName\":\"dataLayer\",\"recordPixel\":{}},\"toast\":{\"tabState\":{},\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100},\"toastDirection\":\"ltr\",\"toastPage\":0}}]}},\"local\"",
+  "function_body": "(t,o)=>{if(o!==this.areaName||!(this.key in t))return;const{newValue:r,oldValue:n}=t[this.key];r&&e(r,n)}"
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:23.997568
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:23.997568",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "23",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "HANDLER CALL",
+  "api_name": "storage.onChanged.addListener",
+  "arguments": "{\"reduxed\":{\"newValue\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",1760079562737,{\"app\":{\"ClientId\":\"sgJ3n1GqKHI5MUlgKlVoU18RzFRymoCwS6dRQ2dwVr6ud79RxF\",\"CloudData\":{\"lastUpdatedAt\":0,\"messages\":{\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"topRightMessage\":{\"message\":\"\"},\"video\":{\"link\":\"\"}}},\"Fetching\":{\"option\":false},\"License\":{\"lastChecked\":0,\"licenseState\":\"initial\",\"thiefCount\":0},\"Sleep\":false},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"GtagManager\":{\"Hide paused tags\":true,\"Highlight tag fired multiple times\":true,\"Highlight tag with errors\":true,\"Sort tags alphabetically\":true},\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"pixel\":{\"GtmDataLayerName\":\"dataLayer\",\"recordPixel\":{}},\"toast\":{\"tabState\":{},\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100},\"toastDirection\":\"ltr\",\"toastPage\":0}}],\"oldValue\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",0,{\"app\":{\"CloudData\":{\"lastUpdatedAt\":0,\"messages\":{\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"topRightMessage\":{\"message\":\"\"},\"video\":{\"link\":\"\"}}},\"Fetching\":{\"option\":false},\"License\":{\"lastChecked\":0,\"licenseState\":\"initial\",\"thiefCount\":0},\"Sleep\":false},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"GtagManager\":{\"Hide paused tags\":true,\"Highlight tag fired multiple times\":true,\"Highlight tag with errors\":true,\"Sort tags alphabetically\":true},\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"pixel\":{\"GtmDataLayerName\":\"dataLayer\",\"recordPixel\":{}},\"toast\":{\"tabState\":{},\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100},\"toastDirection\":\"ltr\",\"toastPage\":0}}]}},\"local\"",
+  "function_body": "(t,o)=>{if(o!==this.areaName||!(this.key in t))return;const{newValue:r,oldValue:n}=t[this.key];r&&e(r,n)}"
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:24.278932
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:24.278932",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "24",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "storage.local.set",
+  "arguments": "{\"reduxed\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",1760079564038,{\"pixel\":{\"recordPixel\":{}},\"app\":{\"CloudData\":{\"messages\":{\"topRightMessage\":{\"message\":\"\"},\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"video\":{\"link\":\"\"}},\"lastUpdatedAt\":0},\"License\":{\"licenseState\":\"initial\",\"lastChecked\":0,\"thiefCount\":0},\"Fetching\":{\"option\":false},\"Sleep\":false,\"ClientId\":\"sgJ3n1GqKHI5MUlgKlVoU18RzFRymoCwS6dRQ2dwVr6ud79RxF\",\"UserGeoInfo\":{\"country\":\"United States\",\"city\":\"Richardson\"}},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"GtagManager\":{\"Hide paused tags\":true,\"Sort tags alphabetically\":true,\"Highlight tag with errors\":true,\"Highlight tag fired multiple times\":true},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"toast\":{\"tabState\":{},\"toastPage\":0,\"toastDirection\":\"ltr\",\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100}}}]},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:24.281452
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:24.281452",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "25",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "API CALL",
+  "api_name": "storage.local.set",
+  "arguments": "{\"reduxed\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",1760079564037,{\"pixel\":{\"recordPixel\":{},\"GtmDataLayerName\":\"dataLayer\"},\"app\":{\"CloudData\":{\"messages\":{\"topRightMessage\":{\"message\":\"\"},\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"video\":{\"link\":\"\"}},\"lastUpdatedAt\":0},\"License\":{\"licenseState\":\"initial\",\"lastChecked\":0,\"thiefCount\":0},\"Fetching\":{\"option\":false},\"Sleep\":false,\"ClientId\":\"sgJ3n1GqKHI5MUlgKlVoU18RzFRymoCwS6dRQ2dwVr6ud79RxF\",\"UserGeoInfo\":{\"country\":\"United States\",\"city\":\"Richardson\"}},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"GtagManager\":{\"Hide paused tags\":true,\"Sort tags alphabetically\":true,\"Highlight tag with errors\":true,\"Highlight tag fired multiple times\":true},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"toast\":{\"tabState\":{},\"toastPage\":0,\"toastDirection\":\"ltr\",\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100}}}]},null",
+  "function_body": ""
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:24.335659
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:24.335659",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "26",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "HANDLER CALL",
+  "api_name": "storage.onChanged.addListener",
+  "arguments": "{\"reduxed\":{\"newValue\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",1760079564037,{\"app\":{\"ClientId\":\"sgJ3n1GqKHI5MUlgKlVoU18RzFRymoCwS6dRQ2dwVr6ud79RxF\",\"CloudData\":{\"lastUpdatedAt\":0,\"messages\":{\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"topRightMessage\":{\"message\":\"\"},\"video\":{\"link\":\"\"}}},\"Fetching\":{\"option\":false},\"License\":{\"lastChecked\":0,\"licenseState\":\"initial\",\"thiefCount\":0},\"Sleep\":false,\"UserGeoInfo\":{\"city\":\"Richardson\",\"country\":\"United States\"}},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"GtagManager\":{\"Hide paused tags\":true,\"Highlight tag fired multiple times\":true,\"Highlight tag with errors\":true,\"Sort tags alphabetically\":true},\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"pixel\":{\"GtmDataLayerName\":\"dataLayer\",\"recordPixel\":{}},\"toast\":{\"tabState\":{},\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100},\"toastDirection\":\"ltr\",\"toastPage\":0}}],\"oldValue\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",1760079562737,{\"app\":{\"ClientId\":\"sgJ3n1GqKHI5MUlgKlVoU18RzFRymoCwS6dRQ2dwVr6ud79RxF\",\"CloudData\":{\"lastUpdatedAt\":0,\"messages\":{\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"topRightMessage\":{\"message\":\"\"},\"video\":{\"link\":\"\"}}},\"Fetching\":{\"option\":false},\"License\":{\"lastChecked\":0,\"licenseState\":\"initial\",\"thiefCount\":0},\"Sleep\":false},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"GtagManager\":{\"Hide paused tags\":true,\"Highlight tag fired multiple times\":true,\"Highlight tag with errors\":true,\"Sort tags alphabetically\":true},\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"pixel\":{\"GtmDataLayerName\":\"dataLayer\",\"recordPixel\":{}},\"toast\":{\"tabState\":{},\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100},\"toastDirection\":\"ltr\",\"toastPage\":0}}]}},\"local\"",
+  "function_body": "(t,o)=>{if(o!==this.areaName||!(this.key in t))return;const{newValue:r,oldValue:n}=t[this.key];r&&e(r,n)}"
+}
+----------------------------------------
+
+Timestamp: 2025-10-10 06:59:24.483379
+Type: API_LOG
+Data: {
+  "timestamp": "2025-10-10 06:59:24.483379",
+  "job_id": "api-analysis-20251010_062437_840-canpneabbfipaelecfibpmmjbdkiaolf",
+  "id": "27",
+  "extension_id": "canpneabbfipaelecfibpmmjbdkiaolf",
+  "extension_name": "TagHound - Analytics/GTM/Pixel Debugger",
+  "call_type": "HANDLER CALL",
+  "api_name": "storage.onChanged.addListener",
+  "arguments": "{\"reduxed\":{\"newValue\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",1760079564038,{\"app\":{\"ClientId\":\"sgJ3n1GqKHI5MUlgKlVoU18RzFRymoCwS6dRQ2dwVr6ud79RxF\",\"CloudData\":{\"lastUpdatedAt\":0,\"messages\":{\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"topRightMessage\":{\"message\":\"\"},\"video\":{\"link\":\"\"}}},\"Fetching\":{\"option\":false},\"License\":{\"lastChecked\":0,\"licenseState\":\"initial\",\"thiefCount\":0},\"Sleep\":false,\"UserGeoInfo\":{\"city\":\"Richardson\",\"country\":\"United States\"}},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"GtagManager\":{\"Hide paused tags\":true,\"Highlight tag fired multiple times\":true,\"Highlight tag with errors\":true,\"Sort tags alphabetically\":true},\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"pixel\":{\"recordPixel\":{}},\"toast\":{\"tabState\":{},\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100},\"toastDirection\":\"ltr\",\"toastPage\":0}}],\"oldValue\":[\"b5734b22-646e-458a-8ea8-8076df8934ec\",1760079564037,{\"app\":{\"ClientId\":\"sgJ3n1GqKHI5MUlgKlVoU18RzFRymoCwS6dRQ2dwVr6ud79RxF\",\"CloudData\":{\"lastUpdatedAt\":0,\"messages\":{\"bottomMessage\":{\"message\":\"\"},\"support\":{\"link\":\"\"},\"topRightMessage\":{\"message\":\"\"},\"video\":{\"link\":\"\"}}},\"Fetching\":{\"option\":false},\"License\":{\"lastChecked\":0,\"licenseState\":\"initial\",\"thiefCount\":0},\"Sleep\":false,\"UserGeoInfo\":{\"city\":\"Richardson\",\"country\":\"United States\"}},\"option\":{\"BasicConfiguration\":{\"Track GTM\":false},\"ExcludedDomains\":[\"lookerstudio.google.com\",\"upwork.com\",\"app.clickup.com\",\"tagmanager.google.com\",\"analytics.google.com\",\"tagassistant.google.com\",\"app.amplitude.com\"],\"GtagManager\":{\"Hide paused tags\":true,\"Highlight tag fired multiple times\":true,\"Highlight tag with errors\":true,\"Sort tags alphabetically\":true},\"IncludedDomains\":[],\"Recording\":\"Tab-Lock\"},\"pixel\":{\"GtmDataLayerName\":\"dataLayer\",\"recordPixel\":{}},\"toast\":{\"tabState\":{},\"toastConfigurations\":{\"fontSize\":14,\"opacity\":1,\"toastWrapperHeight\":100},\"toastDirection\":\"ltr\",\"toastPage\":0}}]}},\"local\"",
+  "function_body": "(t,o)=>{if(o!==this.areaName||!(this.key in t))return;const{newValue:r,oldValue:n}=t[this.key];r&&e(r,n)}"
+}
+----------------------------------------
+
